@@ -6,9 +6,10 @@ static bool gDarkMode = false;
 static bool operator<(wxColour const &l, wxColour const &r) { return l.GetRGBA() < r.GetRGBA(); }
 
 static std::map<wxColour, wxColour> gDarkColors{
-    {"#009688", "#00675b"}, // rgb(0, 150, 136)    ORCA color
+    {"#009688", "#FF6A00"}, // ORCA Orange accent color (Dark Mode)
+    {"#019687", "#FF6A00"}, // Confirm button color
     {"#1F8EEA", "#2778D2"}, // rgb(31, 142, 234)   ???
-    {"#FF6F00", "#D15B00"}, // rgb(255, 111, 0)    Secondary color
+    {"#FF6F00", "#FF6A00"}, // Secondary color
     {"#D01B1B", "#BB2A3A"}, // rgb(208, 27, 27)    ???
     {"#262E30", "#EFEFF0"}, // rgb(38, 46, 48)     Button text color | Input Text Color
     {"#DFDFDF", "#3E3E45"}, // rgb(223, 223, 223)  Button Background color
