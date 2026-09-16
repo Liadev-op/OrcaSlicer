@@ -132,31 +132,27 @@ void BBLTopbarArt::DrawButton(wxDC& dc, wxWindow* wnd, const wxAuiToolBarItem& i
 
     if (!(item.GetState() & wxAUI_BUTTON_STATE_DISABLED))
     {
+        wxRect btnRect = rect;
+        btnRect.Deflate(wnd->FromDIP(2), wnd->FromDIP(2));
+        int radius = wnd->FromDIP(4);
+
         if (item.GetState() & wxAUI_BUTTON_STATE_PRESSED)
         {
-            dc.SetPen(wxPen(StateColor::darkModeColorFor("#FF6A00"))); // ORCA ORANGE
-            dc.SetBrush(wxBrush(StateColor::darkModeColorFor("#FF6A00"))); // ORCA ORANGE
-            dc.DrawRectangle(rect);
-        }
-        else if ((item.GetState() & wxAUI_BUTTON_STATE_HOVER) || item.IsSticky())
-        {
-            dc.SetPen(wxPen(StateColor::darkModeColorFor("#FF6A00"))); // ORCA ORANGE
-            dc.SetBrush(wxBrush(StateColor::darkModeColorFor("#FF6A00"))); // ORCA ORANGE
-
-            // draw an even lighter background for checked item hovers (since
-            // the hover background is the same color as the check background)
-            if (item.GetState() & wxAUI_BUTTON_STATE_CHECKED)
-                dc.SetBrush(wxBrush(StateColor::darkModeColorFor("#FF6A00"))); // ORCA ORANGE
-
-            dc.DrawRectangle(rect);
+            dc.SetPen(wxPen(wxColour("#E65C00"), 1));
+            dc.SetBrush(wxBrush(wxColour("#E65C00")));
+            dc.DrawRoundedRectangle(btnRect, radius);
         }
         else if (item.GetState() & wxAUI_BUTTON_STATE_CHECKED)
         {
-            // it's important to put this code in an else statement after the
-            // hover, otherwise hovers won't draw properly for checked items
-            dc.SetPen(wxPen(StateColor::darkModeColorFor("#FF6A00"))); // ORCA ORANGE
-            dc.SetBrush(wxBrush(StateColor::darkModeColorFor("#FF6A00"))); // ORCA ORANGE
-            dc.DrawRectangle(rect);
+            dc.SetPen(wxPen(wxColour("#FF6A00"), 1));
+            dc.SetBrush(wxBrush(wxColour("#FF6A00")));
+            dc.DrawRoundedRectangle(btnRect, radius);
+        }
+        else if ((item.GetState() & wxAUI_BUTTON_STATE_HOVER) || item.IsSticky())
+        {
+            dc.SetPen(wxPen(wxColour(75, 78, 88), 1));
+            dc.SetBrush(wxBrush(wxColour(55, 58, 68)));
+            dc.DrawRoundedRectangle(btnRect, radius);
         }
     }
 

@@ -5,9 +5,9 @@ static bool gDarkMode = false;
 
 static bool operator<(wxColour const &l, wxColour const &r) { return l.GetRGBA() < r.GetRGBA(); }
 
-static std::map<wxColour, wxColour> gDarkColors{
     {"#009688", "#FF6A00"}, // ORCA Orange accent color (Dark Mode)
     {"#019687", "#FF6A00"}, // Confirm button color
+    {"#26A69A", "#FF6A00"}, // Target/match color -> Orange accent
     {"#1F8EEA", "#2778D2"}, // rgb(31, 142, 234)   ???
     {"#FF6F00", "#FF6A00"}, // Secondary color
     {"#D01B1B", "#BB2A3A"}, // rgb(208, 27, 27)    ???
@@ -31,7 +31,7 @@ static std::map<wxColour, wxColour> gDarkColors{
     {"#000000", "#FFFFFE"}, // rgb(0, 0, 0)        Mostly Text color wxBlack
     {"#F4F4F4", "#36363D"}, // rgb(244, 244, 244)  ???
     {"#DBDBDB", "#4A4A51"}, // rgb(219, 219, 219)  Input/Combo Box Border Color
-    {"#EDFAF2", "#283232"}, // rgb(229, 240, 238)  Not Used anymore // Was used for BBS Combo / Dropdown focused background color
+    {"#EDFAF2", "#2A1D15"}, // rgb(229, 240, 238)  Dropdown focused background color (warm dark)
     {"#323A3C", "#E5E5E6"}, // rgb(50, 58, 60)     Text color used on search list | 
     {"#303A3C", "#E5E5E5"}, // rgb(48, 58, 60)     Object Table > Column header text color | StaticBox Border Color
     {"#FEFFFF", "#242428"}, // rgb(254, 255, 255)  Side Tabbar bg | 
@@ -39,14 +39,14 @@ static std::map<wxColour, wxColour> gDarkColors{
     {"#363636", "#B2B3B5"}, // rgb(54, 54, 54)     Sidebar > Parameter Label/Title color | Sidebar tab text | Create Filament window text
     {"#F0F0F1", "#333337"}, // rgb(240, 240, 241)  Disabled element background // ORCA Used better background color for dark mode
     {"#9E9E9E", "#53545A"}, // rgb(158, 158, 158)  ???
-    {"#D7E8DE", "#1F2B27"}, // rgb(215, 232, 222)  Not Used anymore // Leftover from BBS
+    {"#D7E8DE", "#2D2622"}, // rgb(215, 232, 222)  Dropdown background warm dark
     {"#2B3436", "#808080"}, // rgb(43, 52, 54)     Not Used anymore // Leftover from BBS. Was used as main fill color of icons
     {"#ABABAB", "#ABABAB"},
     {"#D9D9D9", "#2D2D32"}, // rgb(217, 217, 217)  Sidebar > Toggle button track color
     //{"#F0F0F0", "#4C4C54"},
     // ORCA
-    {"#BFE1DE", "#223C3C"}, // rgb(191, 225, 222)  Dropdown checked item background color > ORCA color with %25 opacity
-    {"#E5F0EE", "#283232"}, // rgb(229, 240, 238)  Combo / Dropdown focused background color > ORCA color with %10 opacity
+    {"#BFE1DE", "#3F2615"}, // rgb(191, 225, 222)  Dropdown checked item background color > Orange warm tint
+    {"#E5F0EE", "#2A1D15"}, // rgb(229, 240, 238)  Combo / Dropdown focused background color > Orange warm tint
     // MixedFilamentDialog dark mode
     {"#F8F7F7", "#2A2A2E"}, // rgb(248, 247, 247)  Dialog / scrolled content background
     {"#F0F0F0", "#3F3F46"}, // rgb(240, 240, 240)  Card borders, dividers
@@ -66,8 +66,6 @@ static std::map<wxColour, wxColour> gDarkColors{
     // {"#000000","#FFFFFE"} in revert()'s reverse map and broke lightModeColorFor(#000000).
     {"#D1D5DC", "#52525B"}, // rgb(209, 213, 220)  Cancel button border
     {"#FF0000", "#FF5252"}, // rgb(255, 0, 0)      Hex input error border
-    {"#019687", "#00675B"}, // rgb(1, 150, 135)    Confirm button bg (near #009688)
-    {"#26A69A", "#00675B"}, // rgb(38, 166, 154)   Default target/match color
     {"#FEFEFE", "#FEFEFE"}, // rgb(254, 254, 254)   Near-white text (segment btn selected, confirm btn)
 };
 
