@@ -6,68 +6,64 @@ static bool gDarkMode = false;
 static bool operator<(wxColour const &l, wxColour const &r) { return l.GetRGBA() < r.GetRGBA(); }
 
 static std::map<wxColour, wxColour> gDarkColors{
-    {"#009688", "#FF6A00"}, // ORCA Orange accent color (Dark Mode)
-    {"#019687", "#FF6A00"}, // Confirm button color
-    {"#26A69A", "#FF6A00"}, // Target/match color -> Orange accent
-    {"#1F8EEA", "#2778D2"}, // rgb(31, 142, 234)   ???
-    {"#FF6F00", "#FF6A00"}, // Secondary color
-    {"#D01B1B", "#BB2A3A"}, // rgb(208, 27, 27)    ???
-    {"#262E30", "#EFEFF0"}, // rgb(38, 46, 48)     Button text color | Input Text Color
-    {"#DFDFDF", "#3E3E45"}, // rgb(223, 223, 223)  Button Background color
-    {"#D4D4D4", "#4D4D54"}, // rgb(212, 212, 212)  Button Background color on Hover
-    {"#6B6A6A", "#909090"}, // rgb(107, 107, 106)  Button Dimmed text
-    {"#6B6B6A", "#B3B3B5"}, // rgb(107, 107, 106)  Input box side text
-    {"#2C2C2E", "#B3B3B4"}, // rgb(44, 44, 46)     ???
-    {"#6B6B6B", "#818183"}, // rgb(107, 107, 107)  Disabled Text
-    {"#ACACAC", "#65656A"}, // rgb(172, 172, 172)  Disabled Text on boxes | Dimmed Elements
-    {"#EEEEEE", "#4C4C55"}, // rgb(238, 238, 238)  Separator Line | Title Line Color
-    {"#E8E8E8", "#3E3E45"}, // rgb(232, 232, 232)  ???
-    {"#323A3D", "#E5E5E4"}, // rgb(50, 58, 61)     Softer text color
-    {"#FFFFFF", "#2D2D31"}, // rgb(255, 255, 255)  Window background
-    {"#F8F8F8", "#36363C"}, // rgb(248, 248, 248)  Sidebar > Titlebar > Gradient Top | BBL monitor page titlebar bg
-    {"#F1F1F1", "#36363B"}, // rgb(241, 241, 241)  Sidebar > Titlebar > Gradient Bottom
-    {"#3B4446", "#2D2D30"}, // rgb(59, 68, 78)     Top Bar / Main tab bar bg color
-    {"#CECECE", "#54545B"}, // rgb(206, 206, 206)  Sidebar wxPanel bg | 
-    {"#DBFDD5", "#3B3B40"}, // rgb(219, 253, 213)  Not Used anymore // Was used for BBS combo boxes etc
-    {"#000000", "#FFFFFE"}, // rgb(0, 0, 0)        Mostly Text color wxBlack
-    {"#F4F4F4", "#36363D"}, // rgb(244, 244, 244)  ???
-    {"#DBDBDB", "#4A4A51"}, // rgb(219, 219, 219)  Input/Combo Box Border Color
-    {"#EDFAF2", "#2A1D15"}, // rgb(229, 240, 238)  Dropdown focused background color (warm dark)
-    {"#323A3C", "#E5E5E6"}, // rgb(50, 58, 60)     Text color used on search list | 
-    {"#303A3C", "#E5E5E5"}, // rgb(48, 58, 60)     Object Table > Column header text color | StaticBox Border Color
-    {"#FEFFFF", "#242428"}, // rgb(254, 255, 255)  Side Tabbar bg | 
-    {"#A6A9AA", "#2D2D29"}, // rgb(166, 169, 170)  Seperator color
-    {"#363636", "#B2B3B5"}, // rgb(54, 54, 54)     Sidebar > Parameter Label/Title color | Sidebar tab text | Create Filament window text
-    {"#F0F0F1", "#333337"}, // rgb(240, 240, 241)  Disabled element background // ORCA Used better background color for dark mode
-    {"#9E9E9E", "#53545A"}, // rgb(158, 158, 158)  ???
-    {"#D7E8DE", "#2D2622"}, // rgb(215, 232, 222)  Dropdown background warm dark
-    {"#2B3436", "#808080"}, // rgb(43, 52, 54)     Not Used anymore // Leftover from BBS. Was used as main fill color of icons
-    {"#ABABAB", "#ABABAB"},
-    {"#D9D9D9", "#2D2D32"}, // rgb(217, 217, 217)  Sidebar > Toggle button track color
-    //{"#F0F0F0", "#4C4C54"},
-    // ORCA
-    {"#BFE1DE", "#3F2615"}, // rgb(191, 225, 222)  Dropdown checked item background color > Orange warm tint
-    {"#E5F0EE", "#2A1D15"}, // rgb(229, 240, 238)  Combo / Dropdown focused background color > Orange warm tint
+    {"#009688", "#FF6E14"}, // Snapmaker / Nova energetic orange accent
+    {"#019687", "#FF6E14"}, // Confirm button color
+    {"#26A69A", "#FF7D29"}, // Target/match color -> Orange accent
+    {"#1F8EEA", "#38BDF8"}, // Vibrant modern blue
+    {"#FF6F00", "#FF6E14"}, // Secondary color -> Orange
+    {"#D01B1B", "#F87171"}, // Modern soft red
+    {"#262E30", "#F8FAFC"}, // Button text color | Input Text Color (crisp high contrast)
+    {"#DFDFDF", "#282A33"}, // Button Background color (modern flat dark button)
+    {"#D4D4D4", "#373A47"}, // Button Background color on Hover
+    {"#6B6A6A", "#94A3B8"}, // Button Dimmed text (slate-400)
+    {"#6B6B6A", "#CBD5E1"}, // Input box side text (slate-300)
+    {"#2C2C2E", "#CBD5E1"}, // Softer text
+    {"#6B6B6B", "#64748B"}, // Disabled Text (slate-500)
+    {"#ACACAC", "#475569"}, // Disabled Text on boxes | Dimmed Elements (slate-600)
+    {"#EEEEEE", "#2E323D"}, // Separator Line | Title Line Color (clean subtle divider)
+    {"#E8E8E8", "#282A33"}, // Surface background
+    {"#323A3D", "#F1F5F9"}, // Softer text color
+    {"#FFFFFF", "#18191E"}, // Window background (modern deep slate-charcoal)
+    {"#F8F8F8", "#1F2128"}, // Sidebar > Titlebar > Gradient Top (sleek dark card header)
+    {"#F1F1F1", "#1A1B21"}, // Sidebar > Titlebar > Gradient Bottom
+    {"#3B4446", "#121316"}, // Top Bar / Main tab bar bg color (sleek header bar)
+    {"#CECECE", "#22242D"}, // Sidebar wxPanel bg (modern card surface)
+    {"#DBFDD5", "#282A33"}, // Not Used anymore
+    {"#000000", "#F8FAFC"}, // Mostly Text color wxBlack -> crisp white
+    {"#F4F4F4", "#1F2128"}, // Surface accent
+    {"#DBDBDB", "#2E323D"}, // Input/Combo Box Border Color (sleek modern dark border)
+    {"#EDFAF2", "#2B1B12"}, // Dropdown focused background color (subtle orange glow)
+    {"#323A3C", "#F1F5F9"}, // Text color used on search list
+    {"#303A3C", "#E2E8F0"}, // Object Table > Column header text color | StaticBox Border Color
+    {"#FEFFFF", "#16171B"}, // Side Tabbar bg
+    {"#A6A9AA", "#2E323D"}, // Seperator color
+    {"#363636", "#CBD5E1"}, // Sidebar > Parameter Label/Title color | Sidebar tab text
+    {"#F0F0F1", "#1E2027"}, // Disabled element background
+    {"#9E9E9E", "#475569"}, // Dimmed borders
+    {"#D7E8DE", "#281A12"}, // Dropdown background warm dark
+    {"#2B3436", "#94A3B8"}, // Leftover from BBS fill color
+    {"#ABABAB", "#475569"},
+    {"#D9D9D9", "#282A33"}, // Sidebar > Toggle button track color
+    {"#BFE1DE", "#3A2114"}, // Dropdown checked item background color > Orange warm tint
+    {"#E5F0EE", "#2B1B12"}, // Combo / Dropdown focused background color > Orange warm tint
     // MixedFilamentDialog dark mode
-    {"#F8F7F7", "#2A2A2E"}, // rgb(248, 247, 247)  Dialog / scrolled content background
-    {"#F0F0F0", "#3F3F46"}, // rgb(240, 240, 240)  Card borders, dividers
-    {"#F3F4F6", "#3A3A3F"}, // rgb(243, 244, 246)  Internal card dividers
-    {"#242424", "#E4E4E7"}, // rgb(36, 36, 36)    Primary text (hex input, cancel btn)
-    {"#18181B", "#E4E4E7"}, // rgb(24, 24, 27)    Login confirmation text
-    {"#4A4A4A", "#A1A1AA"}, // rgb(74, 74, 74)    Secondary text (segmented btns)
-    {"#8F8F8F", "#8A8A95"}, // rgb(143, 143, 143) Label text (Hex:, Preview, percentages)
-    {"#EBEBEB", "#45454B"}, // rgb(235, 235, 235)  Slider track background
-    {"#FDE8E8", "#4D2020"}, // rgb(253, 232, 232)  Error banner background
-    {"#D32F2F", "#EF5350"}, // rgb(211, 47, 47)    Error text
-    {"#FFF3EB", "#452A1A"}, // rgb(255, 243, 235)  Warning banner background
-    {"#FF842D", "#FF9F43"}, // rgb(255, 132, 45)   Warning text
-    {"#B4B4B4", "#73737D"}, // rgb(180, 180, 180)  Preview/strip border
-    {"#E7E7E7", "#54545B"}, // rgb(231, 231, 231)  MixedFilament preview panel background
-    // NOTE: removed {"#939393","#000000"} — its dark value #000000 collided with
-    // {"#000000","#FFFFFE"} in revert()'s reverse map and broke lightModeColorFor(#000000).
-    {"#D1D5DC", "#52525B"}, // rgb(209, 213, 220)  Cancel button border
-    {"#FF0000", "#FF5252"}, // rgb(255, 0, 0)      Hex input error border
-    {"#FEFEFE", "#FEFEFE"}, // rgb(254, 254, 254)   Near-white text (segment btn selected, confirm btn)
+    {"#F8F7F7", "#1A1B21"}, // Dialog / scrolled content background
+    {"#F0F0F0", "#2E323D"}, // Card borders, dividers
+    {"#F3F4F6", "#252731"}, // Internal card dividers
+    {"#242424", "#F1F5F9"}, // Primary text (hex input, cancel btn)
+    {"#18181B", "#F1F5F9"}, // Login confirmation text
+    {"#4A4A4A", "#CBD5E1"}, // Secondary text (segmented btns)
+    {"#8F8F8F", "#94A3B8"}, // Label text (Hex:, Preview, percentages)
+    {"#EBEBEB", "#2E323D"}, // Slider track background
+    {"#FDE8E8", "#3B1818"}, // Error banner background
+    {"#D32F2F", "#F87171"}, // Error text
+    {"#FFF3EB", "#3B2214"}, // Warning banner background
+    {"#FF842D", "#FFA043"}, // Warning text
+    {"#B4B4B4", "#475569"}, // Preview/strip border
+    {"#E7E7E7", "#22242D"}, // MixedFilament preview panel background
+    {"#D1D5DC", "#2E323D"}, // Cancel button border
+    {"#FF0000", "#F87171"}, // Hex input error border
+    {"#FEFEFE", "#F8FAFC"}, // Near-white text (segment btn selected, confirm btn)
 };
 
 std::tuple<double, double, double> StateColor::GetLAB(const wxColour& color) {

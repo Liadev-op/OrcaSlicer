@@ -28,11 +28,9 @@ PrinterWebView::PrinterWebView(wxWindow *parent)
 
     wxBoxSizer* topsizer = new wxBoxSizer(wxVERTICAL);
 
-    wxString url      = wxString::FromUTF8(LOCALHOST_URL + std::to_string(wxGetApp().get_page_http_port()) +
-                                           "/web/flutter_web/index.html?path=2");
-    auto     real_url = wxGetApp().get_international_url(url);
-    wxGetApp().start_flutter_wcp_timeout_watch();
-      // Create the webview
+    wxString url = "http://192.168.1.30/";
+    auto real_url = url;
+    // Create the webview
     m_browser = WebView::CreateWebView(this, real_url);
     if (m_browser == nullptr) {
         wxLogError("Could not init m_browser");
@@ -75,14 +73,19 @@ void PrinterWebView::load_url(wxString& url, wxString apikey)
         return;
     m_apikey = apikey;
 
-    if (url.find("path=2") != std::string::npos) {
-        wxGetApp().fltviews().add_printer_view(this, url, apikey);
+    wxString target_url = url;
+    if (target_url.find("flutter_web") != std::string::npos || target_url.IsEmpty()) {
+        target_url = "http://192.168.1.30/";
+    }
+
+    if (target_url.find("path=2") != std::string::npos) {
+        wxGetApp().fltviews().add_printer_view(this, target_url, apikey);
     } else {
         wxGetApp().fltviews().remove_printer_view(this);
     }
 
     m_browser->Show();
-    m_browser->LoadURL(url);
+    m_browser->LoadURL(target_url);
 
     UpdateState();
 }
